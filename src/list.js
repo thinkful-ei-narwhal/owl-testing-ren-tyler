@@ -6,15 +6,14 @@ import store from './store';
 //In ses part shown b4 part who left
 
 export function list(props) {
-  const parts = props.participants.map((person) => {<person key={person.id} title={person.title} content={person.content} />}
-  
-  const sort =  parts.status.sort(function (x, y) {
-      return x === y ? 0 : x ? -1 : 1;
-  }
+  const sortedArray = props.store.slice().sort(function (x, y) {
+    return x === y ? 0 : x ? -1 : 1;
+  });
+  const parts = sortedArray.map((person) => {
+    return (
+      <person key={person.id} title={person.title} content={person.content} />
+    );
+  });
 
-  return (
-    <div className="participant-list">
-      {parts}
-    </div>
-  );
+  return <div className="participant-list">{parts}</div>;
 }
