@@ -7,7 +7,10 @@ function Person(props) {
       <img src={props.avatar} alt={props.name} className="user-avatar" />
       <div className="info">
         <h6 className="name">{props.name}</h6>
-        <div className="status">{props.inSession}</div>
+        <div
+          className={props.inSession === 'true' ? 'in session' : 'left session'}
+        ></div>
+        <div className={props.onStage}></div>
       </div>
     </div>
   );

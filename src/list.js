@@ -10,10 +10,9 @@ export default function List(props) {
   const sortedArray = props.participants.slice().sort(function (x, y) {
     return x.inSession === y.inSession ? 0 : x.inSession ? -1 : 1;
   });
+
   const parts = sortedArray.map((person) => {
-    return (
-      <Person key={person.id} name={person.name} avatar={person.avatar} status={person.inSession} />
-    );
+    return <Person key={person.id} name={person.name} avatar={person.avatar} />;
   });
 
   return <div className="participant-list">{parts}</div>;
